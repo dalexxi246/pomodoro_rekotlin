@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/notesListFragment">
+    <fragment
+        android:id="@+id/login"
+        android:name="com.wh2soft.tddexample.features.login.LoginFragment"
+        android:label="login" />
+    <fragment
+        android:id="@+id/notesListFragment"
+        android:name="com.wh2soft.tddexample.features.taskslist.TasksListFragment"
+        android:label="notes_list_fragment"
+        tools:layout="@layout/notes_list_fragment" >
+        <action
+            android:id="@+id/action_notesListFragment_to_taskDetailsFragment"
+            app:destination="@id/taskDetailsFragment" />
+        <action
+            android:id="@+id/action_notesListFragment_to_pomodoroTimerFragment"
+            app:destination="@id/pomodoroTimerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailsFragment"
+        android:name="com.wh2soft.tddexample.features.taskdetails.TaskDetailsFragment"
+        android:label="task_details_fragment"
+        tools:layout="@layout/task_details_fragment" >
+        <action
+            android:id="@+id/action_taskDetailsFragment_to_pomodoroTimerFragment"
+            app:destination="@id/pomodoroTimerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pomodoroTimerFragment"
+        android:name="com.wh2soft.tddexample.features.pomodorotimer.PomodoroTimerFragment"
+        android:label="pomodoro_timer_fragment"
+        tools:layout="@layout/pomodoro_timer_fragment" />
+</navigation>
