@@ -22,6 +22,8 @@ android {
     }
 }
 
+def leakCanary_version = '1.6.1'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -29,6 +31,10 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanary_version"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanary_version"
+    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$leakCanary_version"
 
     implementation androidNavigationDependencies.values()
     implementation rxDependencies.values()

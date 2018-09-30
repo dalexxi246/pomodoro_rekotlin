@@ -1,4 +1,4 @@
-package com.wh2soft.tddexample.features.taskslist
+package com.wh2soft.tddexample.features.authentication
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,23 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.wh2soft.tddexample.R
 
-
-class TasksListFragment : Fragment() {
+class AuthenticationFragment : Fragment() {
 
     companion object {
-        fun newInstance() = TasksListFragment()
+        fun newInstance() = AuthenticationFragment()
     }
 
-    private lateinit var viewModel: TasksListViewModel
+    private lateinit var viewModel: AuthenticationViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.notes_list_fragment, container, false)
+                              savedInstanceState: Bundle?): View {
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TasksListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(AuthenticationViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

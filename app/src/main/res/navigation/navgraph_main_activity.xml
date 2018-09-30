@@ -2,35 +2,47 @@
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/notesListFragment">
+    app:startDestination="@id/projectsListFragment">
     <fragment
-        android:id="@+id/login"
-        android:name="com.wh2soft.tddexample.features.login.LoginFragment"
-        android:label="login" />
+        android:id="@+id/authentication"
+        android:name="com.wh2soft.tddexample.features.authentication.AuthenticationFragment"
+        android:label="authentication" />
     <fragment
         android:id="@+id/notesListFragment"
-        android:name="com.wh2soft.tddexample.features.taskslist.TasksListFragment"
+        android:name="com.wh2soft.tddexample.features.tasks.TasksListFragment"
         android:label="notes_list_fragment"
-        tools:layout="@layout/notes_list_fragment" >
+        tools:layout="@layout/fragment_notes_list" >
         <action
-            android:id="@+id/action_notesListFragment_to_taskDetailsFragment"
+            android:id="@+id/seeTaskDetails"
             app:destination="@id/taskDetailsFragment" />
         <action
-            android:id="@+id/action_notesListFragment_to_pomodoroTimerFragment"
+            android:id="@+id/startPomodoroTimer"
             app:destination="@id/pomodoroTimerFragment" />
     </fragment>
     <fragment
         android:id="@+id/taskDetailsFragment"
-        android:name="com.wh2soft.tddexample.features.taskdetails.TaskDetailsFragment"
+        android:name="com.wh2soft.tddexample.features.tasks.TaskDetailsFragment"
         android:label="task_details_fragment"
-        tools:layout="@layout/task_details_fragment" >
+        tools:layout="@layout/fragment_task_details" >
         <action
-            android:id="@+id/action_taskDetailsFragment_to_pomodoroTimerFragment"
+            android:id="@+id/startPomodoroTimer"
             app:destination="@id/pomodoroTimerFragment" />
     </fragment>
     <fragment
         android:id="@+id/pomodoroTimerFragment"
         android:name="com.wh2soft.tddexample.features.pomodorotimer.PomodoroTimerFragment"
         android:label="pomodoro_timer_fragment"
-        tools:layout="@layout/pomodoro_timer_fragment" />
+        tools:layout="@layout/fragment_pomodoro_timer" />
+    <action
+        android:id="@+id/authenticateUser"
+        app:destination="@id/authentication" />
+    <fragment
+        android:id="@+id/projectsListFragment"
+        android:name="com.wh2soft.tddexample.features.projects.ProjectsListFragment"
+        android:label="fragment_projects_list"
+        tools:layout="@layout/fragment_projects_list" >
+        <action
+            android:id="@+id/action_projectsListFragment_to_notesListFragment"
+            app:destination="@id/notesListFragment" />
+    </fragment>
 </navigation>

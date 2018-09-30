@@ -1,4 +1,4 @@
-package com.wh2soft.tddexample.features.taskslist
+package com.wh2soft.tddexample.features.tasks
 
 import androidx.lifecycle.ViewModel;
 

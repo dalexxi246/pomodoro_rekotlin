@@ -120,7 +120,12 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="login">
+                  <entry key="authenticateUser">
+                    <value>
+                      <LayoutPositions />
+                    </value>
+                  </entry>
+                  <entry key="authentication">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -143,12 +148,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_notesListFragment_to_pomodoroTimerFragment">
+                            <entry key="seeTaskDetails">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_notesListFragment_to_taskDetailsFragment">
+                            <entry key="startPomodoroTimer">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -170,6 +175,27 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="projectsListFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-215" />
+                            <option name="y" value="322" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_projectsListFragment_to_notesListFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="taskDetailsFragment">
                     <value>
                       <LayoutPositions>
@@ -181,7 +207,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_taskDetailsFragment_to_pomodoroTimerFragment">
+                            <entry key="startPomodoroTimer">
                               <value>
                                 <LayoutPositions />
                               </value>

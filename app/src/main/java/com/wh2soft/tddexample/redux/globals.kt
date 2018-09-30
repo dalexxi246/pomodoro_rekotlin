@@ -7,17 +7,17 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.PublishSubject
 import org.rekotlin.*
 
-val epicsMiddleware = EpicsMiddleware(listOf(exampleEpic))
+val epicsMiddleware by lazy { EpicsMiddleware(listOf(exampleEpic)) }
 
-val store = Store(
-        reducer = ::rootReducer,
-        middleware = listOf(epicsMiddleware),
-        state = RootState(),
-        automaticallySkipRepeats = true
-)
+val store by lazy { buildStore() }
 
-fun rootReducer(action: Action, rootState: RootState?): RootState {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+fun buildStore(): Store<RootState> {
+    return Store(
+            reducer = ::rootReducer,
+            middleware = listOf(epicsMiddleware),
+            state = RootState(),
+            automaticallySkipRepeats = true
+    )
 }
 
 class EpicsMiddleware(private val epics: List<Epic>) : Middleware<RootState>, Disposable {
@@ -45,4 +45,3 @@ class EpicsMiddleware(private val epics: List<Epic>) : Middleware<RootState>, Di
         epicsDisposable?.dispose()
     }
 }
-
