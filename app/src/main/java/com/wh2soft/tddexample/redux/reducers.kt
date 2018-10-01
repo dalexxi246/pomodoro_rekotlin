@@ -16,6 +16,7 @@ fun projectsReducer(action: Action, state: List<Project>?): List<Project> {
     return when (action) {
         is ProjectAction.CreateProject -> projectsState.plus(action.project)
         is ProjectAction.RemoveProject -> projectsState.filterNot { action.idForRemovalProject == it.id }
+        is ProjectAction.UpdateProjectData -> projectsState.asSequence().filter { it.id == action.newProjectData.id }.map { action.newProjectData }.toList()
         else -> projectsState
     }
 }

@@ -1,8 +1,10 @@
 package com.wh2soft.tddexample.redux
 
 import com.google.common.truth.Truth
+import com.wh2soft.tddexample.redux.state.Color
 import com.wh2soft.tddexample.redux.state.Project
 import com.wh2soft.tddexample.redux.state.RootState
+import com.wh2soft.tddexample.redux.state.Task
 import org.junit.Test
 
 class ProjectsReducerTest {
@@ -43,7 +45,7 @@ class ProjectsReducerTest {
 
     }
 
-    @Test fun `Given 2 projects in the state, when DeleteProject action has been dispatched with an existing project, then the projects state must have only one project`() {
+    @Test fun `Given 2 projects in the state, when DeleteProject action has been dispatched with an existing project id, then the projects state must have only one project`() {
 
         // region Given
         val actualProjects = listOf(Project(id = 1), Project(id = 2))
@@ -62,10 +64,26 @@ class ProjectsReducerTest {
 
     }
 
-    // Validar la edicion del color de un proyecto especifico
-    // Validar la edicion del nombre de un proyecto especifico
+    @Test fun `Given one project in the state, when UpdateProjectData action has been dispatched with an existing project, then the projects state must have the project modified`() {
 
-    // Validar que se agregue una tarea al proyecto indicado
+        // region Given
+        val actualProjects = listOf(Project(id = 1, description = "Mock project", color = null))
+        val actualState = RootState(projects = actualProjects)
+        // endregion
+
+        // region When
+        val newProjectData = Project(id = 1, description = "Project", color = Color.TEAL)
+        val newState = rootReducer(ProjectAction.UpdateProjectData(newProjectData), actualState)
+        // endregion
+
+        // region Then
+        val expected = RootState(projects = listOf(newProjectData))
+        Truth.assertThat(newState).isEqualTo(expected)
+        // endregion
+
+    }
+
+    // Validar que se agregue una tarea al proyecto indicado (descripcion es obligatoria)
     // Validar que se pueda editar una tarea de un proyecto especifico
     // Validar que
 

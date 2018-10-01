@@ -6,6 +6,7 @@ import org.rekotlin.Action
 sealed class ProjectAction : Action {
     class CreateProject(val project: Project) : ProjectAction()
     class RemoveProject(val idForRemovalProject: Long) : ProjectAction()
+    class UpdateProjectData(val newProjectData: Project) : ProjectAction()
 }
 
 class UselessAction : Action
