@@ -2,10 +2,14 @@ package com.wh2soft.tddexample.redux
 
 import android.util.Log
 import com.wh2soft.tddexample.redux.epics.exampleEpic
+import com.wh2soft.tddexample.redux.reducers.rootReducer
 import com.wh2soft.tddexample.redux.state.RootState
 import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.PublishSubject
-import org.rekotlin.*
+import org.rekotlin.Action
+import org.rekotlin.DispatchFunction
+import org.rekotlin.Middleware
+import org.rekotlin.Store
 
 val epicsMiddleware by lazy { EpicsMiddleware(listOf(exampleEpic)) }
 

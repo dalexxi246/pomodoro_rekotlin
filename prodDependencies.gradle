@@ -7,6 +7,7 @@ ext {
     def ReKotlinVersion = '1.0.0'
     def AnkoVersion = '0.10.5'
     def RxBindingsVersion = '2.1.1'
+    def arrowVersion = '0.7.3'
 
     androidSupportDependencies = [
             appcompat: "com.android.support:appcompat-v7:${AndroidSupportVersion}",
@@ -49,8 +50,8 @@ ext {
     ]
 
     rxDependencies = [
-            rxJava: 'io.reactivex.rxjava2:rxjava:2.2.2',
-            rxKotlin: 'io.reactivex.rxjava2:rxkotlin:2.3.0',
+            rxJava   : 'io.reactivex.rxjava2:rxjava:2.2.2',
+            rxKotlin : 'io.reactivex.rxjava2:rxkotlin:2.3.0',
             rxAndroid: 'io.reactivex.rxjava2:rxandroid:2.1.0'
     ]
 
@@ -64,6 +65,12 @@ ext {
 
     mvrxDependencies = [
             mvrx: "com.airbnb.android:mvrx:0.5.0"
+    ]
+
+    arrowDependencies = [
+            arrowCore       : "io.arrow-kt:arrow-core:${arrowVersion}",
+            arrowSyntax     : "io.arrow-kt:arrow-syntax:${arrowVersion}",
+            arrowTypeclasses: "io.arrow-kt:arrow-typeclasses:${arrowVersion}"
     ]
 
 }

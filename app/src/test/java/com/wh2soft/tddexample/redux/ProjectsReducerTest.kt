@@ -1,10 +1,8 @@
 package com.wh2soft.tddexample.redux
 
 import com.google.common.truth.Truth
-import com.wh2soft.tddexample.redux.state.Color
-import com.wh2soft.tddexample.redux.state.Project
-import com.wh2soft.tddexample.redux.state.RootState
-import com.wh2soft.tddexample.redux.state.Task
+import com.wh2soft.tddexample.redux.reducers.rootReducer
+import com.wh2soft.tddexample.redux.state.*
 import org.junit.Test
 
 class ProjectsReducerTest {
@@ -83,8 +81,66 @@ class ProjectsReducerTest {
 
     }
 
-    // Validar que se agregue una tarea al proyecto indicado (descripcion es obligatoria)
-    // Validar que se pueda editar una tarea de un proyecto especifico
-    // Validar que
+    @Test fun `Given one project with one task in the state, when AddNewTask action has been dispatched with a task, then the projects state must have the project with 2 tasks`() {
+
+        // region Given
+        val actualTasks = listOf(Task(description = "Task", id = 1))
+        val actualProject = Project(id = 1, description = "Mock project", color = null, tasks = actualTasks)
+        val actualState = RootState(projects = listOf(actualProject))
+        // endregion
+
+        // region When
+        val newTask = Task(description = "New task", id = 2)
+        val newState = rootReducer(ProjectAction.TaskAction.AddNewTask(newTask, actualProject.id), actualState)
+        // endregion
+
+        // region Then
+        val expectedTasks = actualTasks.plus(newTask)
+        val expectedState = RootState(projects = listOf(Project(id = 1, description = "Mock project", color = null, tasks = expectedTasks)))
+        Truth.assertThat(newState).isEqualTo(expectedState)
+        // endregion
+
+    }
+
+    @Test fun `Given one project with one task in the state, when DeleteTask action has been dispatched with a task, then the projects state must have the project without tasks`() {
+
+        // region Given
+        val actualTasks = listOf(Task(description = "Task", id = 1L))
+        val actualProject = Project(id = 1, description = "Mock project", color = null, tasks = actualTasks)
+        val actualState = RootState(projects = listOf(actualProject))
+        // endregion
+
+        // region When
+        val newState = rootReducer(ProjectAction.TaskAction.DeleteTask(1L, actualProject.id), actualState)
+        // endregion
+
+        // region Then
+        val expectedTasks = actualTasks.filterNot { it.id == 1L }
+        val expectedState = RootState(projects = listOf(Project(id = 1, description = "Mock project", color = null, tasks = expectedTasks)))
+        Truth.assertThat(newState).isEqualTo(expectedState)
+        // endregion
+
+    }
+
+    @Test fun `Given one project with one task in the state, when EditTask action has been dispatched with a task, then the projects state must have the project with the task data updated`() {
+
+        // region Given
+        val actualTasks = listOf(Task(description = "Task", id = 1L))
+        val actualProject = Project(id = 1, description = "Mock project", color = null, tasks = actualTasks)
+        val actualState = RootState(projects = listOf(actualProject))
+        // endregion
+
+        // region When
+        val taskToEdit = Task(id = 1L, description = "Task edited", estimatedPomodoros = 3, priority = Priority.IMPORTANT)
+        val newState = rootReducer(ProjectAction.TaskAction.EditTask(taskToEdit, actualProject.id), actualState)
+        // endregion
+
+        // region Then
+        val expectedTasks = listOf(taskToEdit)
+        val expectedState = RootState(projects = listOf(Project(id = 1, description = "Mock project", color = null, tasks = expectedTasks)))
+        Truth.assertThat(newState).isEqualTo(expectedState)
+        // endregion
+
+    }
 
 }
