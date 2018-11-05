@@ -7,7 +7,7 @@ import org.rekotlin.Action
 
 object Projects {
 
-    fun projectsReducer(action: Action, state: List<Project>?): List<Project> {
+    internal fun projectsReducer(action: Action, state: List<Project>?): List<Project> {
         val projectsState = state ?: emptyList()
         return when (action) {
             is ProjectAction.CreateProject -> projectsState.plus(action.project)

@@ -1,6 +1,6 @@
 ext {
 
-    def AndroidSupportVersion = '28.0.0-rc01'
+    def AndroidSupportVersion = '28.0.0'
     def AndroidArchVersion = '1.1.1'
     def AndroidNavigationVersion = '1.0.0-alpha06'
     def AndroidConstraintLayoutVersion = '1.1.3'

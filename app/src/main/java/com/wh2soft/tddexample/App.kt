@@ -17,7 +17,9 @@ class App : Application() {
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return false
         }
-        LeakCanary.install(this)
+        if (BuildConfig.DEBUG) {
+            LeakCanary.install(this)
+        }
         return true
     }
 
