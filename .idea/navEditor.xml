@@ -25,6 +25,11 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="navigateToProjectsListFragment">
+                    <value>
+                      <LayoutPositions />
+                    </value>
+                  </entry>
                   <entry key="notesListFragment">
                     <value>
                       <LayoutPositions>
@@ -36,12 +41,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="seeTaskDetails">
+                            <entry key="navigateToPomodoroTimer">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="startPomodoroTimer">
+                            <entry key="navigationToTaskDetails">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -74,7 +79,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_projectsListFragment_to_notesListFragment">
+                            <entry key="navigateToNotesList">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -95,7 +100,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="startPomodoroTimer">
+                            <entry key="navigateToTaskPomodoroTimer">
                               <value>
                                 <LayoutPositions />
                               </value>

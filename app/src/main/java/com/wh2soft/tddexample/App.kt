@@ -2,7 +2,7 @@ package com.wh2soft.tddexample
 
 import android.app.Application
 import com.squareup.leakcanary.LeakCanary
-import com.wh2soft.tddexample.redux.epicsMiddleware
+import com.wh2soft.tddexample.di.epicsMiddleware
 
 class App : Application() {
 

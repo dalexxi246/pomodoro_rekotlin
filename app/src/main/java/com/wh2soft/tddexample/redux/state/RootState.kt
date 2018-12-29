@@ -5,5 +5,4 @@ import org.rekotlin.StateType
 data class RootState(
         val loading: Boolean = false,
         val projects: List<Project> = emptyList()
-) : StateType {
-}
+) : StateType

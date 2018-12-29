@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TDD Example</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menuitem_settings">Settings</string>
+    <string name="text_taskdetails_title">Task Detail</string>
+    <string name="button_taskdetails_save">Guardar</string>
 </resources>

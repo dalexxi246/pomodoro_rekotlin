@@ -1,6 +1,7 @@
 package com.wh2soft.tddexample.redux
 
 import android.util.Log
+import com.wh2soft.tddexample.di.store
 import com.wh2soft.tddexample.redux.state.RootState
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable

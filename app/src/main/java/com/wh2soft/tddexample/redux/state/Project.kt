@@ -1,7 +1,7 @@
 package com.wh2soft.tddexample.redux.state
 
 data class Project(
-        val id: Long = 0L,
+        val id: Int,
         val description: String = "",
         val color: Color? = null,
         val tasks: List<Task> = emptyList()
